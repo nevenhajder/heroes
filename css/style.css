@@ -1,12 +1,184 @@
 
+@font-face {
+  font-family: "Icomoon";
+  src: url("../fonts/icons/icomoon.woff") format("woff");
+  src: url("../fonts/icons/icomoon.svg") format("svg"),
+       url("../fonts/icons/icomoon.ttf") format("truetype"),
+       url("../fonts/icons/icomoon.eot") format("embedded-opentype");
+  font-style: normal;
+  font-weight: normal;
+}
+
+/*------------------------------
+	General Styles
+------------------------------*/
 html {
-	/* Setting a base of 10px so mental math is easier */
-	font-size: 62.5%;
+  /* Setting a base of 10px so mental math is easier */
+  font-size: 62.5%;
+
+  box-sizing: border-box;
 }
 
 body {
-	font: 1.6rem/1.5 "Open Sans", Helvetica, sans-serif;
+  font: 1.6rem/1.5 "Open Sans", Helvetica, sans-serif;
 }
+
+.wrapper {
+  width: 100%;
+  position: relative;
+}
+
+.carousel-container {
+	width: 320px;
+	height: 510px;
+	position: relative;
+	margin: 5rem auto 2rem;
+	-webkit-perspective: 1000px;
+}
+
+.carousel-wrap {
+  position: absolute;
+
+  width: 100%;
+  height: 100%;
+	-webkit-transform-style: preserve-3d;
+}
+
+.card-wrap {
+  width: 300px;
+  height: 490px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+
+  transition: -webkit-transform 1s ease-in;
+	-webkit-transform-style: preserve-3d;
+  
+}
+
+
+/*------------------------------
+	Portrait (front) Styles
+------------------------------*/
+.portrait-wrap, .description-wrap {
+  position: absolute;
+
+  width: 100%;
+  height: 100%;
+
+  border-radius: 10px;
+  background: rgb(0,0,0) url("../images/subtle_carbon/subtle_carbon.png");
+
+  -webkit-backface-visibility: hidden;
+  text-rendering: optimizeLegibility;
+}
+
+.portrait-wrap {
+  z-index: 1;
+}
+
+.portrait-wrap img {
+  display: block;
+
+  width: 90%;
+  height: 400px;
+  margin: 1rem auto 1.5rem;
+
+  border-radius: 10px;
+}
+
+.caption {
+  font: 3.6rem/1 "Petit Formal Script", cursive;
+
+  margin: 0;
+
+  text-align: center;
+
+  color: white;
+}
+
+
+/*------------------------------
+	Description (back) Styles
+------------------------------*/
+.description-wrap {
+  overflow: scroll;
+
+  -webkit-transform: rotateY(-180deg);
+
+  color: white;
+}
+.description-wrap blockquote {
+  font-style: italic;
+}
+
+.description {
+  padding: 1rem 2rem;
+}
+
+
+/*------------------------------
+	Button Controls
+------------------------------*/
+/*Do this with jQuery on click event*/
+/*.selected:hover {
+  cursor: pointer;
+  -webkit-transform: rotateY(180deg) translateZ(277px);
+}*/
+
+.controls {
+  width: 300px;
+	margin: 2rem auto;
+  text-align: center;
+  /*Float clear fix*/
+  overflow: auto;
+}
+
+.controls button {
+  padding: 0;
+  color: white;
+  font-size: 2.4rem;
+  border: none;
+  background: black linear-gradient(to bottom, #45484d 0%,#000000 100%);
+}
+
+#previous {
+  float: left;
+  text-indent: -0.25rem;
+}
+
+#flip {
+  width: 10rem;
+  height: 4rem;
+  border-radius: 10px;
+}
+
+#next {
+  float: right;
+  text-indent: 0.25rem;
+}
+
+#previous, #next {
+  border-radius: 25px;
+  width: 4rem;
+  height: 4rem;
+}
+
+
+/*------------------------------
+	Carousel Setup
+------------------------------*/
+/* Pushes the entire carousel back to correct for the pixelation problem, when each side is
+   traslated along the Z-axis */
+.carousel-wrap { -webkit-transform: translateZ(-277px); }
+
+.carousel-wrap .card-wrap:nth-child(1) { -webkit-transform: rotateY(0) translateZ(277px); }
+.carousel-wrap .card-wrap:nth-child(2) { -webkit-transform: rotateY(60deg) translateZ(277px); }
+.carousel-wrap .card-wrap:nth-child(3) { -webkit-transform: rotateY(120deg) translateZ(277px); }
+.carousel-wrap .card-wrap:nth-child(4) { -webkit-transform: rotateY(180deg) translateZ(277px); }
+.carousel-wrap .card-wrap:nth-child(5) { -webkit-transform: rotateY(240deg) translateZ(277px); }
+.carousel-wrap .card-wrap:nth-child(6) { -webkit-transform: rotateY(300deg) translateZ(277px); }
+
 
 
 
