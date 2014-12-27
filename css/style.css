@@ -41,6 +41,7 @@ body {
 
   width: 100%;
   height: 100%;
+  -webkit-transition: -webkit-transform 1s ease-out;
 	-webkit-transform-style: preserve-3d;
 }
 
@@ -84,6 +85,7 @@ body {
   height: 400px;
   margin: 1rem auto 1.5rem;
 
+  border: 2px solid white;
   border-radius: 10px;
 }
 
@@ -95,6 +97,8 @@ body {
   text-align: center;
 
   color: white;
+  text-shadow: 0 0 4px rgb(0,0,0);
+  text-rendering: optimizeLegibility;
 }
 
 
@@ -169,7 +173,7 @@ body {
 	Carousel Setup
 ------------------------------*/
 /* Pushes the entire carousel back to correct for the pixelation problem, when each side is
-   traslated along the Z-axis */
+   translated along the Z-axis */
 .carousel-wrap { -webkit-transform: translateZ(-277px); }
 
 .carousel-wrap .card-wrap:nth-child(1) { -webkit-transform: rotateY(0) translateZ(277px); }
@@ -179,6 +183,13 @@ body {
 .carousel-wrap .card-wrap:nth-child(5) { -webkit-transform: rotateY(240deg) translateZ(277px); }
 .carousel-wrap .card-wrap:nth-child(6) { -webkit-transform: rotateY(300deg) translateZ(277px); }
 
+
+/*------------------------------------------------------------
+  Hard Coded Classes to Show Each Hero (this is embarassing)
+------------------------------------------------------------*/
+.show-jiro {
+  -webkit-transform: translateZ(-277px) rotateY(180deg);
+}
 
 
 
