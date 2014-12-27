@@ -31,7 +31,7 @@ body {
   width: 100%;
   height: 100%;
 
-  -webkit-transition: -webkit-transform 1s ease-out;
+  -webkit-transition: -webkit-transform 0.9s cubic-bezier(0.17,0.67,0.34,1.12);
   -webkit-transform-style: preserve-3d;
 }
 
@@ -42,7 +42,7 @@ body {
   width: 300px;
   height: 490px;
 
-  transition: -webkit-transform 1s ease-out;
+  transition: -webkit-transform 0.9s cubic-bezier(0.17,0.67,0.34,1.12);
   -webkit-transform-style: preserve-3d;
 }
 
@@ -100,22 +100,40 @@ body {
   -webkit-transform: rotateY(-180deg);
 }
 
-.description-wrap blockquote {
-  font-style: italic;
-}
-
 .description {
   padding: 1rem 2rem;
 }
 
+.description-wrap blockquote {
+  position: relative;
+  margin-left: 4rem;
+  margin-right: 3rem;
+  font-size: 2.1rem;
+  font-style: italic;
+}
+
+/* Blockquote floating shadow */
+.description-wrap blockquote:after {
+  position: absolute;
+  content: '';
+  left: 5%;
+  bottom: -2rem;
+  height: 5px;
+  width: 80%;
+  background: radial-gradient(ellipse at center, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0) 80%);
+}
+
+/* Hanging quote position */
+.description-wrap .fa-quote-left {
+  text-indent: -2.9rem;
+}
 
 /*------------------------------
   Button Controls
 ------------------------------*/
 .controls {
-  /*Float clear fix*/
-  overflow: auto;
-  width: 300px;
+  overflow: visible;
+  width: 25rem;
   margin: 2rem auto;
   text-align: center;
 }
@@ -123,9 +141,16 @@ body {
 .controls button {
   font-size: 2.4rem;
   padding: 0;
+  height: 5rem;
   color: white;
   border: none;
   background: black linear-gradient(to bottom, #45484d 0%,#000 100%);
+  transition: all 0.15s ease-out;
+}
+
+#previous, #next {
+  width: 5rem;
+  border-radius: 2.5rem;
 }
 
 #previous {
@@ -135,7 +160,6 @@ body {
 
 #flip {
   width: 10rem;
-  height: 4rem;
   border-radius: 10px;
 }
 
@@ -144,12 +168,32 @@ body {
   text-indent: 0.25rem;
 }
 
-#previous, #next {
-  width: 4rem;
-  height: 4rem;
-  border-radius: 25px;
+#previous:hover {
+  box-shadow: -4px 0 0 tomato;
 }
 
+#flip:hover {
+  box-shadow: 0 2px 0 tomato;
+}
+
+#next:hover {
+  box-shadow: 4px 0 0 tomato;
+}
+
+#previous:active {
+  -webkit-transform: translateX(-2px);
+  box-shadow: none;
+}
+
+#flip:active {
+  -webkit-transform: translateY(2px);
+  box-shadow: none;
+}
+
+#next:active {
+  -webkit-transform: translateX(2px);
+  box-shadow: none;
+}
 
 /*------------------------------
   Carousel Setup

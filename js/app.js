@@ -25,7 +25,9 @@ var selectNext = function() {
 		$('.card-wrap:first-child').addClass('selected');
 	}
 
-	selectedCard = $('.selected > .inner-card-wrap');};
+	selectedCard = $('.selected > .inner-card-wrap');
+};
+
 var selectPrev = function() {
 	var $prev = $('.selected').removeClass('selected').prev('.card-wrap');
 
@@ -35,7 +37,8 @@ var selectPrev = function() {
 		$('.card-wrap:last-child').addClass('selected');
 	}
 
-	selectedCard = $('.selected > .inner-card-wrap');};
+	selectedCard = $('.selected > .inner-card-wrap');
+};
 
 
 /* Rotate carousel on #next.click */
@@ -44,7 +47,8 @@ $('#next').on('click',
 		rotY -= 60;
 		carousel.css('-webkit-transform', 'translateZ(-' + tranZ + 'px) rotateY(' + rotY + 'deg)');
 
-		selectNext();});
+		selectNext();
+});
 
 /* Rotate carousel on #previous.click */
 $('#previous').on('click',
@@ -52,7 +56,8 @@ $('#previous').on('click',
 		rotY += 60;
 		carousel.css('-webkit-transform', 'translateZ(-' + tranZ + 'px) rotateY(' + rotY + 'deg)');
 
-		selectPrev();});
+		selectPrev();
+});
 
 
 /* Flip the card */
