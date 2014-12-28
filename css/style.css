@@ -10,6 +10,7 @@ html {
 
 body {
   font: 1.6rem/1.5 "Open Sans", Helvetica, sans-serif;
+  background: #fff url("../images/swirl_pattern.png");
 }
 
 .wrapper {
@@ -17,11 +18,18 @@ body {
   width: 100%;
 }
 
+.title {
+  font: 4.8rem/1 "Petit Formal Script", cursive;
+  text-align: center;
+  text-shadow: 0 0 10px rgb(108,123,139);
+  margin-bottom: 0;
+}
+
 .carousel-container {
   position: relative;
   width: 320px;
   height: 510px;
-  margin: 5rem auto 2rem;
+  margin: 1rem auto 2rem;
 
   -webkit-perspective: 1000px;
 }
@@ -133,7 +141,7 @@ body {
 .controls {
   overflow: visible;
   width: 25rem;
-  margin: 2rem auto;
+  margin: 1rem auto 2rem;
   text-align: center;
 }
 
